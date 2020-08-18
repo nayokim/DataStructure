@@ -17,6 +17,7 @@ public class LinkedList {
 
     private Node first;
     private Node last;
+    private int size;
 
 
     // to clean up code and increase readability
@@ -32,6 +33,7 @@ public class LinkedList {
             new_node.next = first;
             first = new_node;
         }
+        size++;
     }
 
     //addLast
@@ -40,13 +42,11 @@ public class LinkedList {
 
         if (isEmpty())
             first = last = new_node;
-
         else {
             last.next = new_node;
             last = new_node;
-            return;
         }
-
+        size++;
     }
 
     public int indexOf(int data){
@@ -90,6 +90,7 @@ public class LinkedList {
         var second = first.next; //pointing to 20
         first.next = null; // removes the link between 10 and 20
         first = second; //set first to the second node
+        size--;
 
     }
     //deleteLast
@@ -105,6 +106,7 @@ public class LinkedList {
         //if there is only 1 element
         if (first == last){
             first = last = null;
+            size = 0;
             return;
         }
 
@@ -113,6 +115,7 @@ public class LinkedList {
        var previous =  getPrevious(last);
        last = previous;
        last.next = null;
+       size--;
 
 
     }
@@ -125,4 +128,37 @@ public class LinkedList {
         }
         return null;
     }
+
+    public int size(){
+        return size;
+    }
+
+    public int[] toArray(){
+        int[] array = new int [size];
+        var current = first;
+        var index = 0;
+        while (current !=null){
+            array[index++] = current.value;
+            current = current.next;
+        }
+        return array;
+    }
+
+
+    public void reverse(){
+
+        //initialize three pointers
+        Node previous = null;
+        Node current = first;
+        Node following = null;
+
+        while (current !=null){
+            following = following.next;
+            current.next = previous;
+            previous = current;
+            current = following;
+        }
+
+    }
+
 }

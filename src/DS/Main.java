@@ -1,6 +1,7 @@
 package DS;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,8 +29,16 @@ public class Main {
         LinkedList list = new LinkedList();
         list.addFirst(10);
         list.addLast(20);
-        list.removeLast();
-        System.out.println(list.indexOf(10));
+        list.addLast(30);
+        list.addLast(40);
+
+//        System.out.println(list.size());
+        var array = list.toArray();
+        System.out.println(Arrays.toString(array));
+
+
+//        list.removeLast();
+//        System.out.println(list.size());
 
 //        System.out.println(list.indexOf(20));
 //        System.out.println(list.containsItem(40));
