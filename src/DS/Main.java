@@ -28,7 +28,7 @@ public class Main {
         LinkedList list = new LinkedList();
         list.addFirst(10);
         list.addLast(20);
-        list.deleteFirst();
+        list.removeLast();
         System.out.println(list.indexOf(10));
 
 //        System.out.println(list.indexOf(20));

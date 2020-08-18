@@ -93,9 +93,36 @@ public class LinkedList {
 
     }
     //deleteLast
-    //contains
-    //indexOf
+    public void removeLast(){
+        //10 - > 20 - > 30
+        //last - > 30
+        //traverse the list and set last ->20
+
+        //if list is empty
+        if (isEmpty())
+            throw new NoSuchElementException();
+
+        //if there is only 1 element
+        if (first == last){
+            first = last = null;
+            return;
+        }
+
+        //previous -> 20
+        //last - > 20
+       var previous =  getPrevious(last);
+       last = previous;
+       last.next = null;
 
 
+    }
 
+    private Node getPrevious(Node node){
+        var current = first; // set  a current to first node
+        while (current!=null){ // as long as current is not null, traverse the list
+            if (current.next == node) return current; //
+            current = current.next;// otherwise, set current to the next node. At this point, we have the last node
+        }
+        return null;
+    }
 }
