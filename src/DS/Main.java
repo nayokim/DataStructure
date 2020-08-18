@@ -1,7 +1,6 @@
 package DS;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,7 +28,11 @@ public class Main {
         LinkedList list = new LinkedList();
         list.addFirst(10);
         list.addLast(20);
-        System.out.println(list);
+        list.deleteFirst();
+        System.out.println(list.indexOf(10));
+
+//        System.out.println(list.indexOf(20));
+//        System.out.println(list.containsItem(40));
 
 
 
