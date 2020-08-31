@@ -147,7 +147,8 @@ public class LinkedList {
 
     public void reverse(){
 
-        //initialize three pointers
+        if (isEmpty())return;
+        //initialize pointers
         Node previous = null;
         Node current = first;
         Node following = null;
@@ -159,6 +160,24 @@ public class LinkedList {
             current = following;
         }
 
+        first = previous;
+
     }
+
+    //find the kth node from the end of a linked list in one pass
+    public int getKthFromTheEnd(int k){
+        Node A = first;
+        Node B = first;
+
+        for (int i = 0; i < k-1; i++){
+            B = B.next;
+        }
+        while (B!= last){
+            A = A.next;
+            B= B.next;
+        }
+        return A.value;
+    }
+
 
 }
